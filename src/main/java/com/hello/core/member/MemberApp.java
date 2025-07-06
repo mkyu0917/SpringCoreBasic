@@ -1,10 +1,14 @@
 package com.hello.core.member;
 
+import com.hello.core.AppConfig;
+
 public class MemberApp {
 
     public static void main(String[] args) {
 
-        MemberService memberService = new MemberServiceImpl();
+        AppConfig appconfig = new AppConfig();
+        MemberService memberService = appconfig.memberService();
+        //MemberService memberService = new MemberServiceImpl();
         Member member = new Member(1L,"김민규",Grade.VIP);
 
 
@@ -12,7 +16,8 @@ public class MemberApp {
         Member findMember = memberService.findMember(1L);
 
 
-        System.out.println(findMember.getId());
+        System.out.println("new Member = " + member.getName());
+        System.out.println("find Member = " + findMember.getName());
 
 
     }
